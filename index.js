@@ -20,7 +20,19 @@ const headers = {
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
-// * Code for Route 1 goes here
+app.get('/', async (req, res) => {
+    try {
+        const resp = await axios.get(OBJECTS_URL, {
+            headers,
+            params: { properties: OBJECT_PROPERTIES.join(','), limit: 100 }
+        });
+        const data = resp.data.results;
+        res.render('homepage', { title: 'Pets | Integrating With HubSpot I Practicum', data });
+    } catch (error) {
+        console.error(error.response ? error.response.data : error);
+        res.status(500).send('Could not load custom object records from HubSpot.');
+    }
+});
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 

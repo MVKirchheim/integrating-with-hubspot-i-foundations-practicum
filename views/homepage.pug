@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        h1 Pets
+        p.actions
+            a(href="/update-cobj") Add a new pet
+        table.records
+            thead
+                tr
+                    th Name
+                    th Species
+                    th Age
+            tbody
+                each record in data
+                    tr
+                        td= record.properties.name
+                        td= record.properties.species
+                        td= record.properties.age
+                else
+                    tr
+                        td(colspan="3") No pets yet.
