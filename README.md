@@ -4,7 +4,21 @@ This repository is for the Integrating With HubSpot I: Foundations course. This 
 
 To read the full directions, please go to the [practicum instructions](https://app.hubspot.com/academy/l/tracks/1092124/1093824/5493?language=en).
 
-**Put your HubSpot developer test account custom objects URL link here:** https://app.hubspot.com/contacts/l/objects/${custom-obj-number}/views/all/list
+**Put your HubSpot developer test account custom objects URL link here:** https://app.hubspot.com/contacts/52323809/objects/2-73082104/views/all/list
+
+## About this app
+A small Express + Axios + Pug app for a **Pets** custom object (properties: `name`, `species`, `age`).
+
+- `GET /` lists the Pets records in a table.
+- `GET /update-cobj` shows a form to create a new Pet.
+- `POST /update-cobj` creates the Pet in HubSpot and redirects to the homepage.
+
+The schema used to create the object is in `schema/pets.json`.
+
+### Running locally
+1. `npm install`
+2. Copy `.env.example` to `.env` and set `PRIVATE_APP_ACCESS` (private app token with `crm.objects.custom.read`, `crm.objects.custom.write` and `crm.schemas.custom.read`) and `CUSTOM_OBJECT_TYPE`.
+3. `node index.js` and open http://localhost:3000
 
 ___
 ## Tips:
