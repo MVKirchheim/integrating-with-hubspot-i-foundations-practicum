@@ -1,0 +1,15 @@
+{
+  "name": "pets",
+  "description": "Pets tracked for the Integrating With HubSpot I practicum",
+  "labels": { "singular": "Pet", "plural": "Pets" },
+  "primaryDisplayProperty": "name",
+  "secondaryDisplayProperties": ["species"],
+  "searchableProperties": ["name", "species"],
+  "requiredProperties": ["name"],
+  "properties": [
+    { "name": "name", "label": "Name", "type": "string", "fieldType": "text" },
+    { "name": "species", "label": "Species", "type": "string", "fieldType": "text" },
+    { "name": "age", "label": "Age", "type": "number", "fieldType": "number" }
+  ],
+  "associatedObjects": ["CONTACT"]
+}
